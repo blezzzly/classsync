@@ -41,7 +41,7 @@ export function findActivity(activityId: string): Activity {
 
 export function findActivityByCode(code: string): Activity {
   const normalized = code.trim().toUpperCase();
-  if (!/^CS-[A-Z0-9]{4}$/.test(normalized)) throw new NotFoundError('Enter a valid activity code');
+  if (!/^CS-[A-Z0-9]{4,8}$/.test(normalized)) throw new NotFoundError('Enter a valid activity code');
   const activity = getActivityByCode(getDb(), normalized);
   if (!activity) throw new NotFoundError('We could not find an activity with that code');
   return activity;

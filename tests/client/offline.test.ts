@@ -131,8 +131,12 @@ describe('activity caching and offline code lookup', () => {
   test('validates activity code format', () => {
     expect(isValidCodeFormat('CS-7K4P')).toBe(true);
     expect(isValidCodeFormat('cs-7k4p')).toBe(true);
+    expect(isValidCodeFormat('CS-INTRO')).toBe(true);
+    expect(isValidCodeFormat('CS-BASICS')).toBe(true);
+    expect(isValidCodeFormat('CS-DIGITAL')).toBe(true);
     expect(isValidCodeFormat('BAD')).toBe(false);
     expect(isValidCodeFormat('CS-7K')).toBe(false);
+    expect(isValidCodeFormat('CS-TOOLONGCODE')).toBe(false);
   });
 
   test('join falls back to cache when offline', async () => {

@@ -26,7 +26,7 @@ function normalizeCode(raw: string): string {
 }
 
 export function isValidCodeFormat(code: string): boolean {
-  return /^CS-[A-Z0-9]{4}$/.test(normalizeCode(code));
+  return /^CS-[A-Z0-9]{4,8}$/.test(normalizeCode(code));
 }
 
 export async function findCachedByCode(code: string): Promise<Activity | undefined> {
