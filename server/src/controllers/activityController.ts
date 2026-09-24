@@ -1,6 +1,6 @@
 import type { AuthenticatedRequest } from '../middleware/auth.js';
 import type { Response } from 'express';
-import { listActivities, createActivity, updateActivity, deleteActivity, publishActivity, findActivityByCode, findActivity } from '../services/activities.js';
+import { listActivities, createActivity, updateActivity, deleteActivity, publishActivity, findActivityByCode, findActivity, sanitizeActivityForStudent } from '../services/activities.js';
 import { getProgressRoster, markActivityStarted } from '../services/progress.js';
 import { activityFormSchema } from '../services/validation.js';
 
@@ -15,7 +15,9 @@ export function getActivityController(req: AuthenticatedRequest, res: Response):
     res.status(400).json({ message: 'Invalid activity id' });
     return;
   }
-  res.json({ activity: findActivity(req.params.id) });
+  const activity = findActivity(req.params.id);
+  const isTeacher = req.session?.user.role === 'teacher';
+  res.json({ activity: isTeacher ? activity : sanitizeActivityForStudent(activity) });
 }
 
 export function createActivityController(req: AuthenticatedRequest, res: Response): void {
@@ -58,7 +60,7 @@ export function joinActivityController(req: AuthenticatedRequest, res: Response)
     return;
   }
   const activity = findActivityByCode(req.params.code);
-  res.json({ activity });
+  res.json({ activity: sanitizeActivityForStudent(activity) });
 }
 
 export function startActivityController(req: AuthenticatedRequest, res: Response): void {

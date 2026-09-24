@@ -91,6 +91,12 @@ describe('server backend', () => {
       );
       expect(joined.response.status).toBe(200);
       expect(joined.body.activity.id).toBe(created.body.activity.id);
+      for (const question of joined.body.activity.questions) {
+        expect(question.correctAnswer).toBeNull();
+        for (const option of question.options ?? []) {
+          expect(option.isCorrect).toBe(false);
+        }
+      }
       expect(findActivityByCode(`  ${code.toLowerCase()}  `).id).toBe(created.body.activity.id);
 
       const missing = await postJson<ErrorResponse>(

@@ -47,6 +47,17 @@ export function findActivityByCode(code: string): Activity {
   return activity;
 }
 
+export function sanitizeActivityForStudent(activity: Activity): Activity {
+  return {
+    ...activity,
+    questions: activity.questions.map((question) => ({
+      ...question,
+      correctAnswer: null,
+      options: question.options?.map((option) => ({ ...option, isCorrect: false })),
+    })),
+  };
+}
+
 export function createActivity(teacherId: string, input: ActivityFormInput): Activity {
   const parsed = activityFormSchema.parse(input);
   const db = getDb();
