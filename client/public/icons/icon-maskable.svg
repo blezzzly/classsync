@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">ClassSync</title>
+  <rect width="512" height="512" fill="#176b5b"/>
+  <rect x="78" y="78" width="356" height="356" rx="72" fill="#f8faf9"/>
+  <path d="M142 162h228M142 218h228M142 274h142" stroke="#176b5b" stroke-width="30" stroke-linecap="round"/>
+  <path d="M178 338c26-15 58-15 84 0 26 15 58 15 84 0M186 384c18-10 40-10 58 0 18 10 40 10 58 0" fill="none" stroke="#176b5b" stroke-width="22" stroke-linecap="round"/>
+</svg>
