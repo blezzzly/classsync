@@ -1,8 +1,8 @@
-import { getDb } from '../db/database';
-import { getActivityById, getSubmissionById, getSubmissionsWithAnswers } from '../db/queries';
-import { submitSchema } from '../services/validation';
-import { calculateScore, newId } from '../services/helpers';
-import type { AnswerInput, SubmitRequest, Submission } from '../../../shared/src/types';
+import { getDb } from '../db/database.js';
+import { getActivityById, getSubmissionById, getSubmissionsWithAnswers } from '../db/queries.js';
+import { submitSchema } from '../services/validation.js';
+import { calculateScore, newId } from '../services/helpers.js';
+import type { AnswerInput, SubmitRequest, Submission } from '../../../shared/src/types/index.js';
 
 export class ValidationError extends Error {
   constructor(message = 'Please check your answers and try again') {

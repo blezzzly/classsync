@@ -1,6 +1,6 @@
-import { getDb } from '../db/database';
-import { getActivitiesWithQuestions, getSubmissionsWithAnswers } from '../db/queries';
-import type { DashboardData, User } from '../../../shared/src/types';
+import { getDb } from '../db/database.js';
+import { getActivitiesWithQuestions, getSubmissionsWithAnswers } from '../db/queries.js';
+import type { DashboardData, User } from '../../../shared/src/types/index.js';
 
 export function getDashboardData(teacherId: string): DashboardData {
   const db = getDb();

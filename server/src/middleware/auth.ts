@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from 'express';
-import { sessionFromToken } from '../services/auth';
-import type { Role } from '../../../shared/src/types';
+import { sessionFromToken } from '../services/auth.js';
+import type { Role } from '../../../shared/src/types/index.js';
 
 export interface AuthenticatedRequest extends Request {
   session?: { token: string; user: { id: string; name: string; role: Role } };

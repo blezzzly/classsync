@@ -1,8 +1,8 @@
-import { getDb } from '../db/database';
-import { getActivityById, getActivityByCode, getActivitiesWithQuestions } from '../db/queries';
-import { activityFormSchema } from '../services/validation';
-import { generateActivityCode, newId } from '../services/helpers';
-import type { Activity, ActivityFormInput } from '../../../shared/src/types';
+import { getDb } from '../db/database.js';
+import { getActivityById, getActivityByCode, getActivitiesWithQuestions } from '../db/queries.js';
+import { activityFormSchema } from '../services/validation.js';
+import { generateActivityCode, newId } from '../services/helpers.js';
+import type { Activity, ActivityFormInput } from '../../../shared/src/types/index.js';
 
 export class NotFoundError extends Error {
   constructor(message = 'Not found') {

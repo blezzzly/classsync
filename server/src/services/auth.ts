@@ -1,7 +1,7 @@
 import { createHmac, timingSafeEqual } from 'node:crypto';
-import { getDb } from '../db/database';
-import { getUserById, getUserByName } from '../db/queries';
-import type { AuthSession, LoginInput, Role, User } from '../../../shared/src/types';
+import { getDb } from '../db/database.js';
+import { getUserById, getUserByName } from '../db/queries.js';
+import type { AuthSession, LoginInput, Role, User } from '../../../shared/src/types/index.js';
 
 const tokenPrefix = 'classsync.';
 const defaultSessionSecret = 'classsync-local-development-secret';

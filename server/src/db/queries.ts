@@ -1,4 +1,4 @@
-import type { Activity, Question, QuestionOption, Submission, User } from '../../../shared/src/types';
+import type { Activity, Question, QuestionOption, Submission, User } from '../../../shared/src/types/index.js';
 import type Database from 'better-sqlite3';
 
 interface ActivityRow {

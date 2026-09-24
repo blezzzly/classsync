@@ -1,7 +1,7 @@
-import { getDb } from '../db/database';
-import { getActivityById, getSubmissionsWithAnswers } from '../db/queries';
-import { ForbiddenError, NotFoundError } from './activities';
-import type { ProgressEntry, User } from '../../../shared/src/types';
+import { getDb } from '../db/database.js';
+import { getActivityById, getSubmissionsWithAnswers } from '../db/queries.js';
+import { ForbiddenError, NotFoundError } from './activities.js';
+import type { ProgressEntry, User } from '../../../shared/src/types/index.js';
 
 export function markActivityStarted(activityId: string, studentId: string): void {
   const db = getDb();

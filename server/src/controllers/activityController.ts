@@ -1,8 +1,8 @@
-import type { AuthenticatedRequest } from '../middleware/auth';
+import type { AuthenticatedRequest } from '../middleware/auth.js';
 import type { Response } from 'express';
-import { listActivities, createActivity, updateActivity, deleteActivity, publishActivity, findActivityByCode, findActivity } from '../services/activities';
-import { getProgressRoster, markActivityStarted } from '../services/progress';
-import { activityFormSchema } from '../services/validation';
+import { listActivities, createActivity, updateActivity, deleteActivity, publishActivity, findActivityByCode, findActivity } from '../services/activities.js';
+import { getProgressRoster, markActivityStarted } from '../services/progress.js';
+import { activityFormSchema } from '../services/validation.js';
 
 export function listActivitiesController(req: AuthenticatedRequest, res: Response): void {
   const user = req.session?.user;

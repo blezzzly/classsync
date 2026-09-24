@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import { ZodError } from 'zod';
-import { apiRouter } from './routes/api';
-import { getDb } from './db/database';
+import { apiRouter } from './routes/api.js';
+import { getDb } from './db/database.js';
 import type { ErrorRequestHandler } from 'express';
 
 export function createApp() {

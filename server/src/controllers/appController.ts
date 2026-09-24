@@ -1,8 +1,8 @@
 import type { Response } from 'express';
-import type { AuthenticatedRequest } from '../middleware/auth';
-import { login } from '../services/auth';
-import { getDashboardData } from '../services/dashboard';
-import { loginSchema } from '../services/validation';
+import type { AuthenticatedRequest } from '../middleware/auth.js';
+import { login } from '../services/auth.js';
+import { getDashboardData } from '../services/dashboard.js';
+import { loginSchema } from '../services/validation.js';
 
 export function loginController(req: AuthenticatedRequest, res: Response): void {
   const input = loginSchema.parse(req.body);

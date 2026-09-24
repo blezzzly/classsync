@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { attachSession, requireAuth, requireRole } from '../middleware/auth';
+import { attachSession, requireAuth, requireRole } from '../middleware/auth.js';
 import {
   listActivitiesController,
   createActivityController,
@@ -10,14 +10,14 @@ import {
   joinActivityController,
   startActivityController,
   progressController,
-} from '../controllers/activityController';
+} from '../controllers/activityController.js';
 import {
   submitController,
   listSubmissionsController,
   getSubmissionController,
   syncController,
-} from '../controllers/submissionController';
-import { healthController, loginController, dashboardController } from '../controllers/appController';
+} from '../controllers/submissionController.js';
+import { healthController, loginController, dashboardController } from '../controllers/appController.js';
 
 export const apiRouter = Router();
 

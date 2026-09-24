@@ -1,7 +1,7 @@
-import type { AuthenticatedRequest } from '../middleware/auth';
+import type { AuthenticatedRequest } from '../middleware/auth.js';
 import type { Response } from 'express';
-import { createSubmission, listSubmissions, findSubmission } from '../services/submissions';
-import { submitSchema, syncSchema } from '../services/validation';
+import { createSubmission, listSubmissions, findSubmission } from '../services/submissions.js';
+import { submitSchema, syncSchema } from '../services/validation.js';
 
 export function submitController(req: AuthenticatedRequest, res: Response): void {
   const input = submitSchema.parse(req.body);
