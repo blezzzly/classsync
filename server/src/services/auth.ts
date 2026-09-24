@@ -5,7 +5,8 @@ import type { AuthSession, LoginInput, Role, User } from '../../../shared/src/ty
 
 const tokenPrefix = 'classsync.';
 const defaultSessionSecret = 'classsync-local-development-secret';
-const sessionMaxAgeMs = Number(process.env.AUTH_SESSION_MAX_AGE_MS ?? 7 * 24 * 60 * 60 * 1000);
+const parsedMaxAge = Number(process.env.AUTH_SESSION_MAX_AGE_MS);
+const sessionMaxAgeMs = Number.isFinite(parsedMaxAge) && parsedMaxAge > 0 ? parsedMaxAge : 7 * 24 * 60 * 60 * 1000;
 
 function getTokenSecret(): string {
   return process.env.AUTH_SECRET ?? defaultSessionSecret;
